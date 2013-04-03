@@ -1,0 +1,145 @@
+//ABOUT THE APP
+
+//Not Included
+TAB 1 (ConnectionsViewController): Connect to API Server using different Class
+- AFNetworking 
+    - Use DItemManager which use 
+    - AFRequestManager which use 
+    - AFHTTPClient and 
+    - AFRequestManagerDelegate and 
+    - AFJSONRequestOperation
+- ASHTTPRequest 
+    - Use ASIRequestManager
+- Native Request
+
+TAB 1 (HomeViewController): Display the menu
+- POHorizontalList
+    - uses ListItem
+    
+TAB 2 (StyleViewController): Item View Styles fetched by AFNetworking
+//USE GPT DATA
+- Basic UITableView
+    - call ItemViewController1 which load 
+        - ItemsTableViewController a subclass of 
+        - MainTableViewController
+- Using UICollectionView
+    - call ItemViewController2 which load
+        - ViewController that uses
+        - CustomCellBackground and
+        - Cell
+- Using Customize PageControl View
+    - call ItemViewController3 which load
+        - ItemsHorScrollViewController_iPhone
+- Using PageSheet View
+    - call ItemViewController4 which load
+        - PageSheetView which uses
+            - PageView and
+            - ItemView
+//USE BUNDLEPRODUCTS.XLS DATA
+*Parse BundleProducts.xls first
+*Add Reachability Class
+*Add Product Object
+- Using Section Table
+    - Parse XML data BundleProducts using UIWebViewDelegate
+    - Add reachability check
+    - Sort Products by Alphabetical Order
+    - Add Section of Alphabets
+- Using Categorize Table
+    - Parse XML data BundleProducts using UIWebViewDelegate
+    - Add reachability check
+    - Group Product by Unique Segment Description
+    - Add Section of Unique Segment Description
+- Using Collapsable Table
+- Using Carousel View
+- Using MultiColumn Table
+- Using Basic Table with Pull to Refresh
+
+
+TAB 3 (MapAndLocationViewController): All about Map and Location
+- Location
+    - add Mapkit Framework
+    - call MapViewController which has a link to 
+    - PlacemarkViewController
+    
+TAB 4 (MoveScaleImageViewController): Image Manipulation Samples
+TAB 5 : Files and Viewer
+- PDF Files
+    -Add QuickLook framework
+    - call DITableViewController which also call
+        - DirectoryWatcher
+- Video Files
+    - Add MediaPlayer framework
+    - call LBViewController which uses 3rd party
+        - LBYouTubeView
+TAB 7 : Camera and Images
+- Take a Photo
+    - Add AudioToolbox framework
+
+TAB 8 : Notifications
+- Notify
+    - call NotifierViewController
+    - need to add Local notification on AppDelegate
+
+CONNECT & SHARE 
+
+* Add Sharekit to Project   //remove Sharekit replace with separate API for each Sharer
+* Follow Sharekit Installation
+- Sharer (Facebook, Twitter, Email, SMS)
+    - add framework Social, Account, AdSupport, MessageUI, Twitter, Security
+
+Implementing Network Connection using ASIHTTPRequest / AFNetworking / NSURLConnection
+
+Required Framework:
+
+BOTH ASIHTTPRequest and AFNetworking
+- SystemConfiguration
+- MobileCoreServices
+- Security
+
+ASIHTTPRequest
+- CFNetwork
+- libz.dylib
+- libxml2.dylib
+- Reachability Class
+Note: 
+ASIHTTPRequest required to indicate Header Path Search as: ${SDK_DIR}/usr/include/libxml2
+
+AFNetworking
+- CoreLocation
+
+
+//Project 
+Server Request Connection and API using AFNetworking
+- Create a Constants
+- Create an ItemManager
+- Create RequestManager as a subclass of AFHTTPClient
+- Create a RequestManager Delegate
+
+For the Data:
+Use GPT Offer Data
+Use MyUtil and NullRemover and DeviceFeatures of GPT
+Create Item Object
+Create Item Manager
+
+For ASIHTTPRequest:
+- Required 3rd Party SBJson
+- Create RequestManager that include ASIHTTPRequestDelegate
+- Add Atlas for the list of URL
+
+For Native Request:
+Style 1: Crashing
+- Create NativeRequestManager
+- Create DataLibrary for the API call
+Style 2: Not Working
+- Create NativeAPIManager
+- Copy WebRequestObject of EPL
+
+For the Interface to API Call
+- Set Button to call AFNetworking and log JSON response
+- Set Button to call ASIHTTPRequest and log JSON response
+- Set Button to call NativeRequest and log JSON response
+
+For the Tables:
+Create MainTableViewController
+Create ItemTableViewController
+Create ItemCell 
