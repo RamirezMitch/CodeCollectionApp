@@ -103,6 +103,69 @@
 		489BFE2F16E491E900E20415 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BFE2816E48E4C00E20415 /* MyViewController.m */; };
 		489BFE3016E491E900E20415 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BFE2A16E48E4C00E20415 /* OverlayViewController.m */; };
 		489BFE3216E4920600E20415 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489BFE3116E4920500E20415 /* AudioToolbox.framework */; };
+		489C4987170D269800EB7FF4 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE142170C3C0300DF7F1A /* iCarousel.m */; };
+		489C4988170D269800EB7FF4 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE145170C3C1000DF7F1A /* LBYouTubeExtractor.m */; };
+		489C4989170D269800EB7FF4 /* LBYouTubePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE147170C3C1000DF7F1A /* LBYouTubePlayerController.m */; };
+		489C498A170D269800EB7FF4 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE149170C3C1F00DF7F1A /* ListItem.m */; };
+		489C498B170D269800EB7FF4 /* POHorizontalList.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE14B170C3C1F00DF7F1A /* POHorizontalList.m */; };
+		489C498C170D269800EB7FF4 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE14E170C3C2C00DF7F1A /* NSObject+SBJson.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C498D170D269800EB7FF4 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE151170C3C2C00DF7F1A /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C498E170D269800EB7FF4 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE153170C3C2C00DF7F1A /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C498F170D269800EB7FF4 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE155170C3C2C00DF7F1A /* SBJsonStreamParserAccumulator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4990170D269800EB7FF4 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE157170C3C2C00DF7F1A /* SBJsonStreamParserAdapter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4991170D269800EB7FF4 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE159170C3C2C00DF7F1A /* SBJsonStreamParserState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4992170D269800EB7FF4 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE15B170C3C2C00DF7F1A /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4993170D269800EB7FF4 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE15D170C3C2C00DF7F1A /* SBJsonStreamWriterAccumulator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4994170D269800EB7FF4 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE15F170C3C2C00DF7F1A /* SBJsonStreamWriterState.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4995170D269800EB7FF4 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE161170C3C2C00DF7F1A /* SBJsonTokeniser.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4996170D269800EB7FF4 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE163170C3C2C00DF7F1A /* SBJsonUTF8Stream.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4997170D269800EB7FF4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE165170C3C2C00DF7F1A /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4998170D269800EB7FF4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE169170C3C4B00DF7F1A /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C4999170D269800EB7FF4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE16B170C3C4B00DF7F1A /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C499A170D269800EB7FF4 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE16D170C3C4B00DF7F1A /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C499B170D269800EB7FF4 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE16F170C3C4B00DF7F1A /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C499C170D269800EB7FF4 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE171170C3C4B00DF7F1A /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C499F170D26D500EB7FF4 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE12E170C3BDB00DF7F1A /* Category.m */; };
+		489C49A0170D26D500EB7FF4 /* DItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE131170C3BDB00DF7F1A /* DItem.m */; };
+		489C49A1170D26D500EB7FF4 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE133170C3BDB00DF7F1A /* Product.m */; };
+		489C49A2170D26D500EB7FF4 /* AFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE135170C3BEE00DF7F1A /* AFRequestManager.m */; };
+		489C49A3170D26D500EB7FF4 /* AFRequestManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE137170C3BEE00DF7F1A /* AFRequestManagerDelegate.m */; };
+		489C49A4170D26D500EB7FF4 /* ASIRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE139170C3BEE00DF7F1A /* ASIRequestManager.m */; };
+		489C49A5170D26D500EB7FF4 /* DItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE13B170C3BEE00DF7F1A /* DItemManager.m */; };
+		489C49A6170D26D500EB7FF4 /* NativeAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE13E170C3BEE00DF7F1A /* NativeAPIManager.m */; };
+		489C49A7170D26D500EB7FF4 /* NativeRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE140170C3BEE00DF7F1A /* NativeRequestManager.m */; };
+		489C49A8170D26D500EB7FF4 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE174170C3C4B00DF7F1A /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C49A9170D26D500EB7FF4 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE176170C3C4B00DF7F1A /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C49AA170D26D500EB7FF4 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE178170C3C4B00DF7F1A /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		489C49AB170D26D500EB7FF4 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE17A170C3C4B00DF7F1A /* UIImageView+AFNetworking.m */; };
+		489C49AC170D26D500EB7FF4 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE17C170C3C6300DF7F1A /* ASIAuthenticationDialog.m */; };
+		489C49AD170D26D500EB7FF4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE17F170C3C6300DF7F1A /* ASIDataCompressor.m */; };
+		489C49AE170D26D500EB7FF4 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE181170C3C6300DF7F1A /* ASIDataDecompressor.m */; };
+		489C49AF170D26D500EB7FF4 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE183170C3C6300DF7F1A /* ASIDownloadCache.m */; };
+		489C49B0170D26D500EB7FF4 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE185170C3C6300DF7F1A /* ASIFormDataRequest.m */; };
+		489C49B1170D26D500EB7FF4 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE187170C3C6300DF7F1A /* ASIHTTPRequest.m */; };
+		489C49B2170D26D500EB7FF4 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE18B170C3C6300DF7F1A /* ASIInputStream.m */; };
+		489C49B3170D26D500EB7FF4 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE18D170C3C6300DF7F1A /* ASINetworkQueue.m */; };
+		489C49B4170D26D500EB7FF4 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE190170C3C7100DF7F1A /* ASIWebPageRequest.m */; };
+		489C49B5170D26D500EB7FF4 /* ASICloudFilesCDNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE192170C3C7E00DF7F1A /* ASICloudFilesCDNRequest.m */; };
+		489C49B6170D26D500EB7FF4 /* ASICloudFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE194170C3C7E00DF7F1A /* ASICloudFilesContainer.m */; };
+		489C49B7170D26D500EB7FF4 /* ASICloudFilesContainerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE196170C3C7E00DF7F1A /* ASICloudFilesContainerRequest.m */; };
+		489C49B8170D26D500EB7FF4 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE198170C3C7E00DF7F1A /* ASICloudFilesContainerXMLParserDelegate.m */; };
+		489C49B9170D26D500EB7FF4 /* ASICloudFilesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE19A170C3C7E00DF7F1A /* ASICloudFilesObject.m */; };
+		489C49BA170D26D500EB7FF4 /* ASICloudFilesObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE19C170C3C7E00DF7F1A /* ASICloudFilesObjectRequest.m */; };
+		489C49BB170D26D500EB7FF4 /* ASICloudFilesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE19E170C3C7E00DF7F1A /* ASICloudFilesRequest.m */; };
+		489C49BC170D26D500EB7FF4 /* ASIS3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1A1170C3C8E00DF7F1A /* ASIS3Bucket.m */; };
+		489C49BD170D26D500EB7FF4 /* ASIS3BucketObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1A3170C3C8E00DF7F1A /* ASIS3BucketObject.m */; };
+		489C49BE170D26D500EB7FF4 /* ASIS3BucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1A5170C3C8E00DF7F1A /* ASIS3BucketRequest.m */; };
+		489C49BF170D26D500EB7FF4 /* ASIS3ObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1A7170C3C8E00DF7F1A /* ASIS3ObjectRequest.m */; };
+		489C49C0170D26D500EB7FF4 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1A9170C3C8E00DF7F1A /* ASIS3Request.m */; };
+		489C49C1170D26D500EB7FF4 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE1AB170C3C8E00DF7F1A /* ASIS3ServiceRequest.m */; };
+		489C49C5170D5D5200EB7FF4 /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE122170C3B7D00DF7F1A /* Atlas.m */; };
+		489C49C6170D5D5200EB7FF4 /* DataLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE124170C3B7D00DF7F1A /* DataLibrary.m */; };
+		489C49C7170D5D5200EB7FF4 /* WebRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE126170C3B7D00DF7F1A /* WebRequestObject.m */; };
+		489C49C8170D5D5200EB7FF4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE128170C3B9400DF7F1A /* Reachability.m */; };
+		489C49C9170D5D5200EB7FF4 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE12A170C3BB600DF7F1A /* ItemCell.m */; };
+		489C49CA170D5D5200EB7FF4 /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BE12C170C3BB600DF7F1A /* ItemTableViewController.m */; };
 		489C9B4B16F6DDF80066D62A /* CategorizeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489C9B4916F6DDF80066D62A /* CategorizeTableViewController.m */; };
 		489C9B4C16F6DDF80066D62A /* CategorizeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489C9B4A16F6DDF80066D62A /* CategorizeTableViewController.xib */; };
 		489C9B5416F71ACE0066D62A /* CarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489C9B5216F71ACE0066D62A /* CarouselViewController.m */; };
@@ -1305,6 +1368,69 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489C49C5170D5D5200EB7FF4 /* Atlas.m in Sources */,
+				489C49C6170D5D5200EB7FF4 /* DataLibrary.m in Sources */,
+				489C49C7170D5D5200EB7FF4 /* WebRequestObject.m in Sources */,
+				489C49C8170D5D5200EB7FF4 /* Reachability.m in Sources */,
+				489C49C9170D5D5200EB7FF4 /* ItemCell.m in Sources */,
+				489C49CA170D5D5200EB7FF4 /* ItemTableViewController.m in Sources */,
+				489C499F170D26D500EB7FF4 /* Category.m in Sources */,
+				489C49A0170D26D500EB7FF4 /* DItem.m in Sources */,
+				489C49A1170D26D500EB7FF4 /* Product.m in Sources */,
+				489C49A2170D26D500EB7FF4 /* AFRequestManager.m in Sources */,
+				489C49A3170D26D500EB7FF4 /* AFRequestManagerDelegate.m in Sources */,
+				489C49A4170D26D500EB7FF4 /* ASIRequestManager.m in Sources */,
+				489C49A5170D26D500EB7FF4 /* DItemManager.m in Sources */,
+				489C49A6170D26D500EB7FF4 /* NativeAPIManager.m in Sources */,
+				489C49A7170D26D500EB7FF4 /* NativeRequestManager.m in Sources */,
+				489C49A8170D26D500EB7FF4 /* AFPropertyListRequestOperation.m in Sources */,
+				489C49A9170D26D500EB7FF4 /* AFURLConnectionOperation.m in Sources */,
+				489C49AA170D26D500EB7FF4 /* AFXMLRequestOperation.m in Sources */,
+				489C49AB170D26D500EB7FF4 /* UIImageView+AFNetworking.m in Sources */,
+				489C49AC170D26D500EB7FF4 /* ASIAuthenticationDialog.m in Sources */,
+				489C49AD170D26D500EB7FF4 /* ASIDataCompressor.m in Sources */,
+				489C49AE170D26D500EB7FF4 /* ASIDataDecompressor.m in Sources */,
+				489C49AF170D26D500EB7FF4 /* ASIDownloadCache.m in Sources */,
+				489C49B0170D26D500EB7FF4 /* ASIFormDataRequest.m in Sources */,
+				489C49B1170D26D500EB7FF4 /* ASIHTTPRequest.m in Sources */,
+				489C49B2170D26D500EB7FF4 /* ASIInputStream.m in Sources */,
+				489C49B3170D26D500EB7FF4 /* ASINetworkQueue.m in Sources */,
+				489C49B4170D26D500EB7FF4 /* ASIWebPageRequest.m in Sources */,
+				489C49B5170D26D500EB7FF4 /* ASICloudFilesCDNRequest.m in Sources */,
+				489C49B6170D26D500EB7FF4 /* ASICloudFilesContainer.m in Sources */,
+				489C49B7170D26D500EB7FF4 /* ASICloudFilesContainerRequest.m in Sources */,
+				489C49B8170D26D500EB7FF4 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				489C49B9170D26D500EB7FF4 /* ASICloudFilesObject.m in Sources */,
+				489C49BA170D26D500EB7FF4 /* ASICloudFilesObjectRequest.m in Sources */,
+				489C49BB170D26D500EB7FF4 /* ASICloudFilesRequest.m in Sources */,
+				489C49BC170D26D500EB7FF4 /* ASIS3Bucket.m in Sources */,
+				489C49BD170D26D500EB7FF4 /* ASIS3BucketObject.m in Sources */,
+				489C49BE170D26D500EB7FF4 /* ASIS3BucketRequest.m in Sources */,
+				489C49BF170D26D500EB7FF4 /* ASIS3ObjectRequest.m in Sources */,
+				489C49C0170D26D500EB7FF4 /* ASIS3Request.m in Sources */,
+				489C49C1170D26D500EB7FF4 /* ASIS3ServiceRequest.m in Sources */,
+				489C4987170D269800EB7FF4 /* iCarousel.m in Sources */,
+				489C4988170D269800EB7FF4 /* LBYouTubeExtractor.m in Sources */,
+				489C4989170D269800EB7FF4 /* LBYouTubePlayerController.m in Sources */,
+				489C498A170D269800EB7FF4 /* ListItem.m in Sources */,
+				489C498B170D269800EB7FF4 /* POHorizontalList.m in Sources */,
+				489C498C170D269800EB7FF4 /* NSObject+SBJson.m in Sources */,
+				489C498D170D269800EB7FF4 /* SBJsonParser.m in Sources */,
+				489C498E170D269800EB7FF4 /* SBJsonStreamParser.m in Sources */,
+				489C498F170D269800EB7FF4 /* SBJsonStreamParserAccumulator.m in Sources */,
+				489C4990170D269800EB7FF4 /* SBJsonStreamParserAdapter.m in Sources */,
+				489C4991170D269800EB7FF4 /* SBJsonStreamParserState.m in Sources */,
+				489C4992170D269800EB7FF4 /* SBJsonStreamWriter.m in Sources */,
+				489C4993170D269800EB7FF4 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				489C4994170D269800EB7FF4 /* SBJsonStreamWriterState.m in Sources */,
+				489C4995170D269800EB7FF4 /* SBJsonTokeniser.m in Sources */,
+				489C4996170D269800EB7FF4 /* SBJsonUTF8Stream.m in Sources */,
+				489C4997170D269800EB7FF4 /* SBJsonWriter.m in Sources */,
+				489C4998170D269800EB7FF4 /* AFHTTPClient.m in Sources */,
+				489C4999170D269800EB7FF4 /* AFHTTPRequestOperation.m in Sources */,
+				489C499A170D269800EB7FF4 /* AFImageRequestOperation.m in Sources */,
+				489C499B170D269800EB7FF4 /* AFJSONRequestOperation.m in Sources */,
+				489C499C170D269800EB7FF4 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				48D84E5816EF0B55004D02A8 /* MapViewController.m in Sources */,
 				48D84E5916EF0B55004D02A8 /* PlacemarkViewController.m in Sources */,
 				48981E2516EEDFED006A6F9D /* NotifierViewController.m in Sources */,
