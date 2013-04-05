@@ -53,6 +53,7 @@
 		4896692916DF65F300FC8EC6 /* AllFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4896692716DF65F300FC8EC6 /* AllFileViewController.xib */; };
 		4896692D16DF663D00FC8EC6 /* ImageControllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4896692B16DF663D00FC8EC6 /* ImageControllViewController.m */; };
 		4896692E16DF663D00FC8EC6 /* ImageControllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4896692C16DF663D00FC8EC6 /* ImageControllViewController.xib */; };
+		4896C5D8170EA5C5004225EA /* ProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4896C5D7170EA5C5004225EA /* ProductManager.m */; };
 		48981E2216EEDE0A006A6F9D /* NotifierViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48981E2116EEDE0A006A6F9D /* NotifierViewController.xib */; };
 		48981E2516EEDFED006A6F9D /* NotifierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48981E2016EEDDFD006A6F9D /* NotifierViewController.m */; };
 		48981E2B16EEE480006A6F9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48981E2A16EEE480006A6F9D /* MapKit.framework */; };
@@ -291,6 +292,8 @@
 		4896692A16DF663D00FC8EC6 /* ImageControllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageControllViewController.h; sourceTree = "<group>"; };
 		4896692B16DF663D00FC8EC6 /* ImageControllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageControllViewController.m; sourceTree = "<group>"; };
 		4896692C16DF663D00FC8EC6 /* ImageControllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageControllViewController.xib; sourceTree = "<group>"; };
+		4896C5D6170EA5C5004225EA /* ProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductManager.h; path = CodeCollection/Utilities/MyManager/ProductManager.h; sourceTree = SOURCE_ROOT; };
+		4896C5D7170EA5C5004225EA /* ProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductManager.m; path = CodeCollection/Utilities/MyManager/ProductManager.m; sourceTree = SOURCE_ROOT; };
 		48981E1F16EEDDFD006A6F9D /* NotifierViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotifierViewController.h; sourceTree = "<group>"; };
 		48981E2016EEDDFD006A6F9D /* NotifierViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotifierViewController.m; sourceTree = "<group>"; };
 		48981E2116EEDE0A006A6F9D /* NotifierViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotifierViewController.xib; sourceTree = "<group>"; };
@@ -814,6 +817,8 @@
 				489BE13E170C3BEE00DF7F1A /* NativeAPIManager.m */,
 				489BE13F170C3BEE00DF7F1A /* NativeRequestManager.h */,
 				489BE140170C3BEE00DF7F1A /* NativeRequestManager.m */,
+				4896C5D6170EA5C5004225EA /* ProductManager.h */,
+				4896C5D7170EA5C5004225EA /* ProductManager.m */,
 			);
 			name = MyManager;
 			path = CodeCollection/MyManager;
@@ -1470,6 +1475,7 @@
 				48DFFF1A16F30AF400B2D6E1 /* SectionTableViewController.m in Sources */,
 				489C9B4B16F6DDF80066D62A /* CategorizeTableViewController.m in Sources */,
 				489C9B5416F71ACE0066D62A /* CarouselViewController.m in Sources */,
+				4896C5D8170EA5C5004225EA /* ProductManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

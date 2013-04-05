@@ -9,27 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 #import "Reachability.h"
-@interface CarouselViewController : UIViewController <iCarouselDelegate,iCarouselDataSource,UIAlertViewDelegate, UIWebViewDelegate>{
+#import "ProductManager.h"
+#import "DItemManager.h"
+@interface CarouselViewController : UIViewController <iCarouselDelegate,iCarouselDataSource,UIAlertViewDelegate, ProductManagerDelegate>{
     NSArray *catalogue;
-    NSString *xlsContent;
     UIView *viewDarken;
     UIActivityIndicatorView *activityIndicator;
-    NSArray *arrRowBundle;
-    
-    NSMutableArray *listBundlePrd;
     
     Reachability* hostReach;
     Reachability* internetReach;
     Reachability* wifiReach;
-
+    ProductManager *productManager;
+    DItemManager *itemManager;
+   
+    
 }
-@property NSInteger currentPage;
-@property NSInteger totalPage;
+@property(nonatomic,retain) DItemManager *itemManager;
+@property(nonatomic,retain) ProductManager *productManager;
 @property (nonatomic, retain) iCarousel *slideView;
 @property (nonatomic, retain) UIView *moreView;
 @property (nonatomic, retain) UILabel *loadMoreLabel;
 @property (nonatomic, retain) UIActivityIndicatorView *loadMoreIndicatoreView;
-@property (nonatomic, retain) NSMutableDictionary *listSection;
 -(BOOL)internetAvailable;
 -(void)showNoInternetAlert;
 

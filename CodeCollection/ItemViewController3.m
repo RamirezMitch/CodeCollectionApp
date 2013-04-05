@@ -52,9 +52,9 @@
     [self.view addSubview:self.mainScrollView];
     
     self.itemManager = [[[DItemManager alloc] initWithDelegate:self] autorelease];
-    [self.itemManager requestCategories];
-    self.categoryManager = [[[DItemManager alloc] initWithDelegate:self] autorelease];
     [self.itemManager requestAllItems];
+    self.categoryManager = [[[DItemManager alloc] initWithDelegate:self] autorelease];
+    [self.categoryManager requestCategories];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

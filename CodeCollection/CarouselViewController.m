@@ -10,6 +10,8 @@
 #import "Product.h"
 #import "MyUtil.h"
 #import "CCObject.h"
+#import "Category.h"
+#import "DItem.h"
 #define NUMBER_OF_VISIBLE_ITEMS 12
 #define ITEM_SPACING 210.0f
 #define INCLUDE_PLACEHOLDERS YES
@@ -21,8 +23,8 @@
 @synthesize slideView;
 @synthesize frameImage;
 @synthesize moreView,loadMoreLabel,loadMoreIndicatoreView;
-@synthesize listSection;
-@synthesize currentPage,totalPage;
+@synthesize productManager;
+@synthesize itemManager;
 
 - (UIImage *)frameImage
 {
@@ -56,22 +58,35 @@
     [self.view addSubview:self.slideView];
     self.slideView.type = iCarouselTypeCoverFlow2;
     self.slideView.scrollSpeed = 0.2f;
-   
+    
+    self.itemManager = [[[DItemManager alloc] initWithDelegate:self] autorelease];
+    [self.itemManager requestAllItems];
+    self.productManager = [[[ProductManager alloc] initWithDelegate:self] autorelease];
+
+  // [self.slideView reloadData];
     [self initialSetup];
 }
 
--(void) viewWillAppear:(BOOL)animated{
-     self.currentPage = 1;
-}
 -(void) initialSetup{
+    
+
     if ([self internetAvailable])
     {
-        [self loadXLS];
+            [self showActivityIndicator];
+            [self.productManager loadXLS];
     }
     else
     {
         [self showNoInternetAlert];
     }
+}
+-(void) showNoInternetAlert{
+    UIAlertView * alertView = [[[UIAlertView alloc] initWithTitle:@"Network Connection Error"
+                                                          message:@"No Internet Connection detected"
+                                                         delegate:self
+                                                cancelButtonTitle:nil
+                                                otherButtonTitles:@"OK", nil] autorelease];
+    [alertView show];
 }
 -(BOOL)internetAvailable
 {
@@ -114,109 +129,38 @@
     //[viewDarken release];
     //[activityIndicator release];
 }
-
--(void)loadXLS
-{   [self showActivityIndicator];
+- (void) dItemManager:(DItemManager *)om shouldShowAllItems:allItems {
     
-    UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    NSInteger tagIndex = 0;
     
-    NSString *f = [[NSBundle mainBundle] pathForResource:@"BundleProducts" ofType:@"xls"];
-    NSURL *url=[NSURL fileURLWithPath:f];
-    
-    NSURLRequest *requestObj=[NSURLRequest requestWithURL:url];
-    [web loadRequest:requestObj];
-    
-    web.delegate = self;
+    for (NSDictionary *item in allItems) {
+        
+        NSDictionary *catItem = [item objectForKey:@"Category"];
+        Category *cat = [[Category alloc] initWithDictionary:catItem];
+        
+        NSArray *itemList = [item objectForKey:@"OfferList"];
+        if ([itemList count]) { // show offers only when offer list not empty
+            
+            NSMutableArray *theItems = [[NSMutableArray alloc] init];
+            for (NSDictionary *itemDict in itemList) {
+                DItem *itm = [[DItem alloc] initWithDictionary:itemDict];
+                [theItems addObject:itm];
+                [itm release];
+            }
+            
+/////// catalogue
+            [theItems release];
+        }
+        [cat release];
+        tagIndex ++;
+    }
 }
 
--(NSString*)getXLSField:(int)row:(int)col
-{
-    if (row + 1 == [arrRowBundle count])
-    {
-        return @"";
-    }
-    
-    NSArray *arrCol = [[arrRowBundle objectAtIndex:row + 1] componentsSeparatedByString:@"<td"];
-    
-    NSString *result = [[[arrCol objectAtIndex:col + 1] componentsSeparatedByString:@">"] objectAtIndex:1];
-    
-    result = [[result componentsSeparatedByString:@"<"] objectAtIndex:0];
-    result = [result stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
-    
-    result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    return result;
-}
 
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    listBundlePrd = [[NSMutableArray alloc] init];
-    
-    xlsContent = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    arrRowBundle = [xlsContent componentsSeparatedByString:@"<tr"];
-    
-    //[NSThread detachNewThreadSelector:@selector(prepareBundleXLS) toTarget:self withObject:nil];
-    
-    int row = 1;
-    NSString *prdCode = [self getXLSField:row :0];
-    
-    NSMutableArray *listPrdTmp;
-    NSMutableArray *theProducts = [[NSMutableArray alloc] init];
-    while (![prdCode isEqualToString:@""])
-    {
-        NSString *brand = [self getXLSField:row :1];
-        NSString *desc = [self getXLSField:row :2];
-        NSInteger prdCatCode = [self getXLSField:row :2];
-        NSString *prdCat = [self getXLSField:row :4];
-        NSString *thumbURL = [self getXLSField:row :5];
-        
-        
-        listPrdTmp = [[NSMutableArray alloc] init];
-        
-        [listPrdTmp addObject:prdCode];
-        [listPrdTmp addObject:brand];
-        [listPrdTmp addObject:desc];
-        [listPrdTmp addObject:thumbURL];
-        [listPrdTmp addObject:prdCat];
-        
-        [listBundlePrd addObject:listPrdTmp];
-        
-        row = row + 1;
-        prdCode = [self getXLSField:row :0];
-        
-        //Product *p = [Product alloc] initWithDictionary:arrRowBundle obje
-        Product *p = [[Product alloc] init];
-        p.product_code = prdCode;
-        p.product_title = brand;
-        p.desc = desc;
-        p.segmentDesc = prdCat;
-        p.segmentCode = [MyUtil safeNumber:prdCatCode];
-        p.imageUrlSmall = thumbURL;
-        NSLog(@"title: %@", p.product_title);
-        NSString *c = [p.segmentDesc substringToIndex:1];
-        p.characterGroup=[c uppercaseString];
-        [theProducts addObject:p];
-        [p release];
-        
-    }
-    NSArray *sortedArray;
-    NSSortDescriptor *lastDescriptor =[[NSSortDescriptor alloc] initWithKey:@"characterGroup"
-                                                                  ascending:YES
-                                                                   selector:@selector(localizedCaseInsensitiveCompare:)];
-    
-    NSArray *descriptors = [NSArray arrayWithObjects:lastDescriptor, nil];
-    sortedArray = [theProducts sortedArrayUsingDescriptors:descriptors];
-       
-    [theProducts release];
-
-    for (Product *prd in sortedArray)
-    {
-        NSLog(@"sorted: %@", prd.segmentDesc);
-    }
-    catalogue = [[NSArray alloc] initWithArray:sortedArray];
-   
-    self.totalPage = [catalogue count];
-    [self appendDataToICarousel:catalogue];
-    
+- (void)dProductManager:(ProductManager *)om shouldShowAllCategories:(NSArray *)allCategories {
+    catalogue=allCategories;
+    //[self.slideView reloadData];
+     [self appendDataToICarousel:catalogue];
     [self hideActivityIndicator];
 }
 
@@ -277,13 +221,13 @@
     
     else{
         
-        id<CCObject> object = [catalogue objectAtIndex:index];
+        //id<CCObject> object = [catalogue objectAtIndex:index];
         Product *prd = [catalogue objectAtIndex:index];
         for (UIView *subView in view.subviews) {
             if ([subView isKindOfClass:[UILabel class]]) {
                 UILabel *label = (UILabel *)subView;
                 
-                label.text = [object title];
+                label.text = [prd product_title];
             }
             if ([subView isKindOfClass:[UIImageView class]]) {
                 UIImageView *imageView = (UIImageView *)subView;
@@ -292,10 +236,10 @@
                 }
                 
             }
-            
+            NSLog(@"index:%d  - prod_title:%@  - prod_img: %@  ", index, prd.product_title, prd.imageUrlSmall);
         }
     }
-    
+  
     return view;
 }
 
@@ -351,12 +295,9 @@
 
 - (void)loadMoreForICarousel{
     
-    self.currentPage++;
-    
-    if (self.totalPage == self.currentPage) {
-        if(catalogue !=nil || [catalogue count]!=0)
+    if(catalogue !=nil || [catalogue count]!=0){
             [self.slideView removeItemAtIndex:[catalogue count] animated:NO];
-    }
+        }
     
     //[self loadObjects:self.currentPage];
 }
@@ -367,41 +308,13 @@
     //[super appendData:theRsArray];
     
     if (theRsArray != nil && [theRsArray count] > 0 ) {
-        
-        if (self.currentPage == 1) {
-            
+                   
             catalogue = theRsArray;
             
             [self.slideView reloadData];
             
-        }
-        
-        else{
-            
-            [self performSelectorOnMainThread:@selector(appendTableDepth:) withObject:theRsArray waitUntilDone:YES];
-            
-        }
-        
     }
-    
-}
-
-- (void) appendTableDepth:(NSMutableArray *)data
-{
-    
-    NSMutableArray *rsMutabelArray = [[NSMutableArray alloc] initWithArray:catalogue];
-    for (int i=0;i<[data count];i++) {
-        [rsMutabelArray addObject:[data objectAtIndex:i]];
-    }
-    catalogue = rsMutabelArray;
-    [rsMutabelArray release];
-    
-    for (int ind = 0; ind < [data count]; ind++) {
-        [self.slideView insertItemAtIndex:[catalogue indexOfObject:[data objectAtIndex:ind]] animated:YES];
-        // [insertIndexPaths addObject:newPath];
-    }
-    
-    //  [self.moreView setBackgroundColor:[UIColor redColor]];
+       
     
 }
 
