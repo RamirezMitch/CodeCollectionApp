@@ -25,6 +25,7 @@
 @synthesize moreView,loadMoreLabel,loadMoreIndicatoreView;
 @synthesize productManager;
 @synthesize itemManager;
+@synthesize catalogue;
 
 - (UIImage *)frameImage
 {
@@ -130,7 +131,7 @@
     //[activityIndicator release];
 }
 - (void) dItemManager:(DItemManager *)om shouldShowAllItems:allItems {
-    
+    NSMutableArray *theProducts = [[NSMutableArray alloc] init];
     NSInteger tagIndex = 0;
     
     for (NSDictionary *item in allItems) {
@@ -141,24 +142,28 @@
         NSArray *itemList = [item objectForKey:@"OfferList"];
         if ([itemList count]) { // show offers only when offer list not empty
             
-            NSMutableArray *theItems = [[NSMutableArray alloc] init];
+           // NSMutableArray *theItems = [[NSMutableArray alloc] init];
             for (NSDictionary *itemDict in itemList) {
                 DItem *itm = [[DItem alloc] initWithDictionary:itemDict];
-                [theItems addObject:itm];
+               // [theItems addObject:itm];
+                [theProducts addObject:itm];
                 [itm release];
             }
-            
-/////// catalogue
-            [theItems release];
+            //[theItems release];
         }
         [cat release];
         tagIndex ++;
     }
+    //Using itemManager
+   // self.catalogue = [NSArray arrayWithArray:theProducts];
+    [theProducts release];
+   //  [self appendDataToICarousel:self.catalogue];
 }
 
 
 - (void)dProductManager:(ProductManager *)om shouldShowAllCategories:(NSArray *)allCategories {
-    catalogue=allCategories;
+    //Using ProductManager
+   self.catalogue = [NSArray arrayWithArray:allCategories];
     //[self.slideView reloadData];
      [self appendDataToICarousel:catalogue];
     [self hideActivityIndicator];
@@ -222,12 +227,14 @@
     else{
         
         //id<CCObject> object = [catalogue objectAtIndex:index];
-        Product *prd = [catalogue objectAtIndex:index];
+       // DItem *prd = [catalogue objectAtIndex:index]; //using ItemManager
+         Product *prd = [catalogue objectAtIndex:index];
         for (UIView *subView in view.subviews) {
             if ([subView isKindOfClass:[UILabel class]]) {
                 UILabel *label = (UILabel *)subView;
                 
-                label.text = [prd product_title];
+                //label.text = prd.title; //using ItemManager
+                label.text = prd.product_title;
             }
             if ([subView isKindOfClass:[UIImageView class]]) {
                 UIImageView *imageView = (UIImageView *)subView;

@@ -24,6 +24,7 @@
    
     
 }
+@property(nonatomic,retain) NSArray *catalogue;
 @property(nonatomic,retain) DItemManager *itemManager;
 @property(nonatomic,retain) ProductManager *productManager;
 @property (nonatomic, retain) iCarousel *slideView;
