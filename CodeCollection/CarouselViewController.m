@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.slideView = [[[iCarousel alloc] initWithFrame:self.view.frame] autorelease];
+    self.slideView = [[[iCarousel alloc] initWithFrame:CGRectMake(0, 0, 320, 350)] autorelease];
     self.slideView.delegate = self;
     self.slideView.dataSource = self;
     [self.view addSubview:self.slideView];
