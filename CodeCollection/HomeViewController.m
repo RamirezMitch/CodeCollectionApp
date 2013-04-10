@@ -22,6 +22,7 @@
 #import "SectionTableViewController.h"
 #import "CategorizeTableViewController.h"
 #import "CarouselViewController.h"
+#import "TextPlayViewController.h"
 @interface HomeViewController ()
 
 @end
@@ -85,6 +86,7 @@
 
         //Notification
         ListItem *item40= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"11_64x64.png"] text:@"Notify"];
+        ListItem *item41= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"11_64x64.png"] text:@"TextPlay"];
         
         freeList = [[NSMutableArray alloc] initWithObjects: item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, nil];
         paidList = [[NSMutableArray alloc] initWithObjects: item11, item12, item13, item14, nil];
@@ -92,7 +94,7 @@
         imgcamList = [[NSMutableArray alloc] initWithObjects:item22, item23, item24, item25, item26, item27, nil];
         videoAudioList = [[NSMutableArray alloc]initWithObjects:item28,item29, item30, item31,item32, nil];
         fileList = [[NSMutableArray alloc] initWithObjects:item33, item34, item35, item36, item38, item39, nil];
-        notifyList=[[NSMutableArray alloc]initWithObjects:item40, nil];
+        notifyList=[[NSMutableArray alloc]initWithObjects:item40, item41, nil];
     }
     self.title = @"HOME";
     return self;
@@ -189,7 +191,7 @@
         list = [[POHorizontalList alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 155.0) title:title items:fileList];
     }
     else if ([indexPath row] == 6) {
-        title = @"Files and Viewer";
+        title = @"Fun Stuff";
         
         list = [[POHorizontalList alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 155.0) title:title items:notifyList];
     }
@@ -286,6 +288,13 @@
     else if([item.imageTitle isEqualToString:@"iCarousel"]){
         
         CarouselViewController *movescaleView =[[CarouselViewController alloc]init];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+        [movescaleView release];
+    }
+    else if([item.imageTitle isEqualToString:@"TextPlay"]){
+        
+        TextPlayViewController *movescaleView =[[TextPlayViewController alloc]init];
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         [appDelegate.mainNav pushViewController:movescaleView animated:YES];
         [movescaleView release];

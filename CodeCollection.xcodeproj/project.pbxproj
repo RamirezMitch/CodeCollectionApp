@@ -374,6 +374,9 @@
 		48990DB81713CBD600FC6D02 /* th_xsensible_jolly.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48990C7E1713CBD600FC6D02 /* th_xsensible_jolly.jpg */; };
 		48990DB91713CBD600FC6D02 /* th_zen_accessories.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48990C7F1713CBD600FC6D02 /* th_zen_accessories.jpg */; };
 		48990DBA1713CBD600FC6D02 /* th_zoobies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48990C801713CBD600FC6D02 /* th_zoobies.jpg */; };
+		489917F01715677C009D4DE5 /* TextPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489917EE1715677C009D4DE5 /* TextPlayViewController.m */; };
+		489917F11715677C009D4DE5 /* TextPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489917EF1715677C009D4DE5 /* TextPlayViewController.xib */; };
+		489917F7171567C9009D4DE5 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 489917F6171567C9009D4DE5 /* FXLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		489A4D0B16B9100E00D9940F /* MoveScaleImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489A4D0A16B9100E00D9940F /* MoveScaleImageViewController.xib */; };
 		489A4D0C16B9112600D9940F /* MoveScaleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489A4D0916B90FF800D9940F /* MoveScaleImageViewController.m */; };
 		489A4D1416B9116E00D9940F /* ImageToDrag.m in Sources */ = {isa = PBXBuildFile; fileRef = 489A4D0F16B9114F00D9940F /* ImageToDrag.m */; };
@@ -933,6 +936,11 @@
 		48990C7E1713CBD600FC6D02 /* th_xsensible_jolly.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = th_xsensible_jolly.jpg; path = CodeCollection/Images/th_xsensible_jolly.jpg; sourceTree = "<group>"; };
 		48990C7F1713CBD600FC6D02 /* th_zen_accessories.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = th_zen_accessories.jpg; path = CodeCollection/Images/th_zen_accessories.jpg; sourceTree = "<group>"; };
 		48990C801713CBD600FC6D02 /* th_zoobies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = th_zoobies.jpg; path = CodeCollection/Images/th_zoobies.jpg; sourceTree = "<group>"; };
+		489917ED1715677C009D4DE5 /* TextPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPlayViewController.h; sourceTree = "<group>"; };
+		489917EE1715677C009D4DE5 /* TextPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPlayViewController.m; sourceTree = "<group>"; };
+		489917EF1715677C009D4DE5 /* TextPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextPlayViewController.xib; sourceTree = "<group>"; };
+		489917F5171567C9009D4DE5 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
+		489917F6171567C9009D4DE5 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		489A4D0816B90FF800D9940F /* MoveScaleImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveScaleImageViewController.h; sourceTree = "<group>"; };
 		489A4D0916B90FF800D9940F /* MoveScaleImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveScaleImageViewController.m; sourceTree = "<group>"; };
 		489A4D0A16B9100E00D9940F /* MoveScaleImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveScaleImageViewController.xib; sourceTree = "<group>"; };
@@ -1985,8 +1993,20 @@
 				48981E1F16EEDDFD006A6F9D /* NotifierViewController.h */,
 				48981E2016EEDDFD006A6F9D /* NotifierViewController.m */,
 				48981E2116EEDE0A006A6F9D /* NotifierViewController.xib */,
+				489917ED1715677C009D4DE5 /* TextPlayViewController.h */,
+				489917EE1715677C009D4DE5 /* TextPlayViewController.m */,
+				489917EF1715677C009D4DE5 /* TextPlayViewController.xib */,
 			);
 			name = "Tab8-Notifications";
+			sourceTree = "<group>";
+		};
+		489917F4171567C9009D4DE5 /* FXLabel */ = {
+			isa = PBXGroup;
+			children = (
+				489917F5171567C9009D4DE5 /* FXLabel.h */,
+				489917F6171567C9009D4DE5 /* FXLabel.m */,
+			);
+			path = FXLabel;
 			sourceTree = "<group>";
 		};
 		489A4D0D16B9114200D9940F /* MoveScaleImage */ = {
@@ -2153,6 +2173,7 @@
 		48F55905169EC4CF00D32448 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				489917F4171567C9009D4DE5 /* FXLabel */,
 				489BE127170C3B9400DF7F1A /* Reachability.h */,
 				489BE128170C3B9400DF7F1A /* Reachability.m */,
 				48F55917169ECAEE00D32448 /* DeviceFeaturesManager.h */,
@@ -2627,6 +2648,7 @@
 				48990DB81713CBD600FC6D02 /* th_xsensible_jolly.jpg in Resources */,
 				48990DB91713CBD600FC6D02 /* th_zen_accessories.jpg in Resources */,
 				48990DBA1713CBD600FC6D02 /* th_zoobies.jpg in Resources */,
+				489917F11715677C009D4DE5 /* TextPlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2740,6 +2762,8 @@
 				489C9B4B16F6DDF80066D62A /* CategorizeTableViewController.m in Sources */,
 				489C9B5416F71ACE0066D62A /* CarouselViewController.m in Sources */,
 				4896C5D8170EA5C5004225EA /* ProductManager.m in Sources */,
+				489917F01715677C009D4DE5 /* TextPlayViewController.m in Sources */,
+				489917F7171567C9009D4DE5 /* FXLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
