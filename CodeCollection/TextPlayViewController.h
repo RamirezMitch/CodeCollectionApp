@@ -10,7 +10,13 @@
 #import "FXLabel.h"
 
 
-@interface TextPlayViewController : UIViewController
+@interface TextPlayViewController : UIViewController <UIGestureRecognizerDelegate>{
+    
+    CGFloat _lastScale;
+	CGFloat _lastRotation;
+	CGFloat _firstX;
+	CGFloat _firstY;
+}
 @property (nonatomic, strong) IBOutlet UITextField *enterText;
 @property (nonatomic, strong) IBOutlet UIButton *addText;
 -(IBAction)addTransformText:(id)sender;

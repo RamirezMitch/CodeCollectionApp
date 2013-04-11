@@ -1,4 +1,7 @@
 //ABOUT THE APP
+GitHub: https://github.com/RamirezMitch/CodeCollectionApp.git
+Description: An implementation of collected codes and 3rd party API
+
 
 //Not Included
 TAB 1 (ConnectionsViewController): Connect to API Server using different Class
@@ -51,6 +54,9 @@ TAB 2 (StyleViewController): Item View Styles fetched by AFNetworking
     - Add Section of Unique Segment Description
 - Using Collapsable Table
 - Using Carousel View
+    - Create ProductManager to parse xml data BundleProducts
+    - Add reachability check
+    - call iCarousel 3rd Party Framework 
 - Using MultiColumn Table
 - Using Basic Table with Pull to Refresh
 
@@ -79,13 +85,13 @@ TAB 8 : Notifications
 - Notify
     - call NotifierViewController
     - need to add Local notification on AppDelegate
+-TextPlay
+    - call TextViewController which call FXLabel
+    - require QuartzCore framework for moving label to places
+    
 
 CONNECT & SHARE 
 
-* Add Sharekit to Project   //remove Sharekit replace with separate API for each Sharer
-* Follow Sharekit Installation
-- Sharer (Facebook, Twitter, Email, SMS)
-    - add framework Social, Account, AdSupport, MessageUI, Twitter, Security
 
 Implementing Network Connection using ASIHTTPRequest / AFNetworking / NSURLConnection
 

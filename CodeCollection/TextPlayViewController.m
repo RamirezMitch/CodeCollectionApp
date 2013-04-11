@@ -66,8 +66,15 @@
                                        action:@selector(labelDragged:)]autorelease];
 	[addedLabel addGestureRecognizer:gesture];
     
+    UIPinchGestureRecognizer *pinchRecognizer = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)] autorelease];
+    [pinchRecognizer setDelegate:self];
+    [addedLabel addGestureRecognizer:pinchRecognizer];
     
+    UIRotationGestureRecognizer *rotationRecognizer = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)] autorelease];
+    [rotationRecognizer setDelegate:self];
+    [addedLabel addGestureRecognizer:rotationRecognizer];
     [self.view addSubview:addedLabel];
+    
 }
 
 - (void)labelDragged:(UIPanGestureRecognizer *)gesture
@@ -81,5 +88,43 @@
     
 	// reset translation
 	[gesture setTranslation:CGPointZero inView:label];
+}
+-(void)scale:(id)sender {
+    NSLog(@"Pinching...");
+    if([(UIPinchGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
+        _lastScale = 1.0;
+    }
+    
+    CGFloat scale = 1.0 - (_lastScale - [(UIPinchGestureRecognizer*)sender scale]);
+    
+    CGAffineTransform currentTransform = [(UIPinchGestureRecognizer*)sender view].transform;
+    CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
+    
+    [[(UIPinchGestureRecognizer*)sender view] setTransform:newTransform];
+    
+    _lastScale = [(UIPinchGestureRecognizer*)sender scale];
+
+}
+-(void)rotate:(id)sender {
+    NSLog(@"Rotating...");
+    if([(UIRotationGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        
+        _lastRotation = 0.0;
+        return;
+    }
+    
+    CGFloat rotation = 0.0 - (_lastRotation - [(UIRotationGestureRecognizer*)sender rotation]);
+    
+    CGAffineTransform currentTransform = [(UIPinchGestureRecognizer*)sender view].transform;
+    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform,rotation);
+    
+    [[(UIPinchGestureRecognizer*)sender view] setTransform:newTransform];
+    
+    _lastRotation = [(UIRotationGestureRecognizer*)sender rotation];
+
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return ![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ![gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]];
 }
 @end
