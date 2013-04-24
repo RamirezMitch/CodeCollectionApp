@@ -15,10 +15,12 @@
     NSArray *arrRowBundle;
     NSMutableArray *listBundlePrd;
     id<ProductManagerDelegate> delegate;
-   
+    BOOL *groupAll;
 }
- @property(nonatomic,assign) id<ProductManagerDelegate> delegate;
--(id)initWithDelegate:(id)del;
+@property (nonatomic, retain) NSMutableDictionary *listSection;
+@property (nonatomic, retain) NSArray *listContent;
+@property(nonatomic,assign) id<ProductManagerDelegate> delegate;
+-(id)initWithDelegate:(id)del :(BOOL)grouped;
 - (void) cancelRequest;
 - (void)loadXLS;
 -(NSString*)getXLSField:(int)row:(int)col;
@@ -26,6 +28,7 @@
 
 @protocol ProductManagerDelegate <NSObject>
 @optional
-- (void)dProductManager:(ProductManager *)om shouldShowAllCategories:(NSArray *)allCategories;
+- (void)dProductManager:(ProductManager *)om shouldShowAllItems:(NSArray *)allItems;
+- (void)dProductManager:(ProductManager *)om shouldShowAllSections:(NSMutableDictionary *)allSections;
 
 @end

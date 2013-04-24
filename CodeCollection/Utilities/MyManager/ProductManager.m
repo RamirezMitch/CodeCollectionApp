@@ -11,14 +11,20 @@
 #import "MyUtil.h"
 @implementation ProductManager
 @synthesize delegate;
--(id)initWithDelegate:(id)del {
+@synthesize listContent, listSection;
+-(id)initWithDelegate:(id)del :(BOOL)grouped {
     self = [super init];
     if (self) {
         self.delegate = del;
+        groupAll=grouped;
     }
     return self;
 }
-
+-(void)dealloc{
+    [listSection release];
+    [listContent release];
+    [super dealloc];
+}
 -(void)loadXLS
 {   //[self showActivityIndicator];
     
@@ -109,15 +115,57 @@
     
     NSArray *descriptors = [NSArray arrayWithObjects:lastDescriptor, nil];
     sortedArray = [theProducts sortedArrayUsingDescriptors:descriptors];
-    
+    self.listContent = [NSArray arrayWithArray:sortedArray];
     [theProducts release];
     
-    for (Product *prd in sortedArray)
+   /* log only
+    for (Product *prd in self.listContent)
     {
         NSLog(@"sorted: %@", prd.segmentDesc);
     }
+    */
+    self.listSection = [[NSMutableDictionary alloc] init];
     
-     [self.delegate dProductManager:self shouldShowAllCategories:sortedArray];
+    BOOL found;
+    
+    // Loop through the books and create our keys
+    for (Product *prd in self.listContent)
+    {
+        NSString *c = [prd.product_title substringToIndex:1];
+        
+        found = NO;
+        
+        for (NSString *str in [self.listSection allKeys])
+        {
+            if ([str isEqualToString:c])
+            {
+                found = YES;
+            }
+        }
+        
+        if (!found)
+        {
+            [self.listSection setValue:[[NSMutableArray alloc] init] forKey:c];
+        }
+    }
+    
+    // Loop again and sort the books into their respective keys
+    for (Product *prd in self.listContent)
+    {
+        [[self.listSection objectForKey:[prd.product_title substringToIndex:1]] addObject:prd];
+    }
+    
+    // Sort each section array
+    for (NSString *key in [self.listSection allKeys])
+    {
+        [[self.listSection objectForKey:key] sortUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"product_title" ascending:YES]]];
+    }
+
+    if(groupAll){
+        [self.delegate dProductManager:self shouldShowAllSections:self.listSection];
+    }else{
+        [self.delegate dProductManager:self shouldShowAllItems:self.listContent];
+    }
 }
 
 @end

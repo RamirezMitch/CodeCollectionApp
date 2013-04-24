@@ -109,7 +109,6 @@
     [super dealloc];
 }
 
-
 #pragma mark -
 #pragma mark Toolbar Actions
 
@@ -124,7 +123,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:sourceType])
     {
         [self.overlayViewController setupImagePicker:sourceType];
-        [self presentModalViewController:self.overlayViewController.imagePickerController animated:YES];
+        [self presentViewController:self.overlayViewController.imagePickerController animated:YES completion:nil];
     }
 }
 
@@ -151,7 +150,7 @@
 // as a delegate we are told to finished with the camera
 - (void)didFinishWithCamera
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
     
     if ([self.capturedImages count] > 0)
     {

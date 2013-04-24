@@ -88,8 +88,9 @@ TAB 8 : Notifications
 -TextPlay
     - call TextViewController which call FXLabel
     - require QuartzCore framework for moving label to places
-    
-
+- BackgroundPlay
+    - add ImagePicker
+    - 
 CONNECT & SHARE 
 
 

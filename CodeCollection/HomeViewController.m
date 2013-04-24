@@ -17,12 +17,15 @@
 #import "DITableViewController.h"
 #import "LBViewController.h"
 #import "MyViewController.h"
+#import "CameraViewController.h"
 #import "NotifierViewController.h"
 #import "MapViewController.h"
 #import "SectionTableViewController.h"
 #import "CategorizeTableViewController.h"
 #import "CarouselViewController.h"
 #import "TextPlayViewController.h"
+#import "CollapseViewController.h"
+
 @interface HomeViewController ()
 
 @end
@@ -252,9 +255,12 @@
     }
     else if([item.imageTitle isEqualToString:@"Camera"]){
         
-        MyViewController *movescaleView =[[MyViewController alloc]initWithNibName:@"MyViewController" bundle:nil];
+        CameraViewController *movescaleView =[[CameraViewController alloc]initWithNibName:@"CameraViewController" bundle:nil];
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+       // [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+        appDelegate.mainNav=movescaleView;
+        appDelegate.window.rootViewController = appDelegate.mainNav;
+      //  [appDelegate.window makeKeyAndVisible];
         [movescaleView release];
     }
     else if([item.imageTitle isEqualToString:@"Notify"]){
@@ -295,6 +301,13 @@
     else if([item.imageTitle isEqualToString:@"TextPlay"]){
         
         TextPlayViewController *movescaleView =[[TextPlayViewController alloc]init];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+        [movescaleView release];
+    }
+    else if([item.imageTitle isEqualToString:@"Collapse"]){
+        
+        CollapseViewController *movescaleView =[[CollapseViewController alloc]initWithNibName:@"CollapseViewController" bundle:nil];
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         [appDelegate.mainNav pushViewController:movescaleView animated:YES];
         [movescaleView release];

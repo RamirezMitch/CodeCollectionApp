@@ -45,6 +45,9 @@
 		485343E716A94F0400846193 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 485343E616A94F0400846193 /* Cell.xib */; };
 		4878DC4B16E0A19200688B46 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4878DC4916E0A19200688B46 /* HomeViewController.m */; };
 		4878DC4C16E0A19200688B46 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4878DC4A16E0A19200688B46 /* HomeViewController.xib */; };
+		48963E9F171CFE08000E7D0B /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48963E9D171CFE08000E7D0B /* CameraViewController.m */; };
+		48963EA0171CFE08000E7D0B /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48963E9E171CFE08000E7D0B /* CameraViewController.xib */; };
+		48963EA4171D01EE000E7D0B /* tick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 48963EA3171D01EE000E7D0B /* tick.aiff */; };
 		4896691C16DF5F9400FC8EC6 /* MapAndLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4896691A16DF5F9400FC8EC6 /* MapAndLocationViewController.m */; };
 		4896691D16DF5F9400FC8EC6 /* MapAndLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4896691B16DF5F9400FC8EC6 /* MapAndLocationViewController.xib */; };
 		4896692216DF635C00FC8EC6 /* SharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4896692016DF635C00FC8EC6 /* SharingViewController.m */; };
@@ -59,6 +62,10 @@
 		48981E2B16EEE480006A6F9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48981E2A16EEE480006A6F9D /* MapKit.framework */; };
 		48981E2D16EEE550006A6F9D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48981E2C16EEE550006A6F9D /* MapViewController.xib */; };
 		48981E3116EEE8D9006A6F9D /* PlacemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48981E3016EEE8D8006A6F9D /* PlacemarkViewController.xib */; };
+		48981F07172781E400383188 /* CollapseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48981F05172781E400383188 /* CollapseViewController.m */; };
+		48981F08172781E400383188 /* CollapseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48981F06172781E400383188 /* CollapseViewController.xib */; };
+		48981F0B17278E8A00383188 /* downArrowBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 48981F0917278E8A00383188 /* downArrowBlack.png */; };
+		48981F0C17278E8A00383188 /* upArrowBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 48981F0A17278E8A00383188 /* upArrowBlack.png */; };
 		4898B41416B0E1E9009CDC24 /* L-curlpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4898B41216B0E1E9009CDC24 /* L-curlpage.png */; };
 		48990C811713CBD600FC6D02 /* th_2x_vitamic_c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48990B471713CBD400FC6D02 /* th_2x_vitamic_c.jpg */; };
 		48990C821713CBD600FC6D02 /* th_2xomega_3fish_oil_1200mg_100softgels.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48990B481713CBD400FC6D02 /* th_2xomega_3fish_oil_1200mg_100softgels.jpg */; };
@@ -416,7 +423,6 @@
 		489BFE2216E47F4700E20415 /* LBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489BFE2116E47F4700E20415 /* LBViewController.xib */; };
 		489BFE2316E47FD000E20415 /* LBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BFE2016E47F0600E20415 /* LBViewController.m */; };
 		489BFE2516E4806000E20415 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489BFE2416E4806000E20415 /* MediaPlayer.framework */; };
-		489BFE2D16E48E9200E20415 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489BFE2B16E48E9200E20415 /* MyViewController.xib */; };
 		489BFE2E16E48E9200E20415 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 489BFE2C16E48E9200E20415 /* OverlayViewController.xib */; };
 		489BFE2F16E491E900E20415 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BFE2816E48E4C00E20415 /* MyViewController.m */; };
 		489BFE3016E491E900E20415 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489BFE2A16E48E4C00E20415 /* OverlayViewController.m */; };
@@ -597,6 +603,10 @@
 		4878DC4816E0A19200688B46 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4878DC4916E0A19200688B46 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4878DC4A16E0A19200688B46 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		48963E9C171CFE08000E7D0B /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		48963E9D171CFE08000E7D0B /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		48963E9E171CFE08000E7D0B /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		48963EA3171D01EE000E7D0B /* tick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick.aiff; sourceTree = "<group>"; };
 		4896691916DF5F9400FC8EC6 /* MapAndLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAndLocationViewController.h; sourceTree = "<group>"; };
 		4896691A16DF5F9400FC8EC6 /* MapAndLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAndLocationViewController.m; sourceTree = "<group>"; };
 		4896691B16DF5F9400FC8EC6 /* MapAndLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapAndLocationViewController.xib; sourceTree = "<group>"; };
@@ -621,6 +631,11 @@
 		48981E2A16EEE480006A6F9D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		48981E2C16EEE550006A6F9D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		48981E3016EEE8D8006A6F9D /* PlacemarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlacemarkViewController.xib; sourceTree = "<group>"; };
+		48981F04172781E400383188 /* CollapseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollapseViewController.h; sourceTree = "<group>"; };
+		48981F05172781E400383188 /* CollapseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollapseViewController.m; sourceTree = "<group>"; };
+		48981F06172781E400383188 /* CollapseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollapseViewController.xib; sourceTree = "<group>"; };
+		48981F0917278E8A00383188 /* downArrowBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowBlack.png; sourceTree = "<group>"; };
+		48981F0A17278E8A00383188 /* upArrowBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrowBlack.png; sourceTree = "<group>"; };
 		4898B41216B0E1E9009CDC24 /* L-curlpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "L-curlpage.png"; sourceTree = "<group>"; };
 		48990B471713CBD400FC6D02 /* th_2x_vitamic_c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = th_2x_vitamic_c.jpg; path = CodeCollection/Images/th_2x_vitamic_c.jpg; sourceTree = "<group>"; };
 		48990B481713CBD400FC6D02 /* th_2xomega_3fish_oil_1200mg_100softgels.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = th_2xomega_3fish_oil_1200mg_100softgels.jpg; path = CodeCollection/Images/th_2xomega_3fish_oil_1200mg_100softgels.jpg; sourceTree = "<group>"; };
@@ -1129,7 +1144,6 @@
 		489BFE2816E48E4C00E20415 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		489BFE2916E48E4C00E20415 /* OverlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayViewController.h; sourceTree = "<group>"; };
 		489BFE2A16E48E4C00E20415 /* OverlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
-		489BFE2B16E48E9200E20415 /* MyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
 		489BFE2C16E48E9200E20415 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		489BFE3116E4920500E20415 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		489C9B4816F6DDF80066D62A /* CategorizeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizeTableViewController.h; sourceTree = "<group>"; };
@@ -1609,6 +1623,7 @@
 		483ECC72169D684D0088915F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				48963EA3171D01EE000E7D0B /* tick.aiff */,
 				483ECC86169D684D0088915F /* first.png */,
 				483ECC88169D684D0088915F /* first@2x.png */,
 				483ECC8D169D684D0088915F /* second.png */,
@@ -1821,6 +1836,8 @@
 		4878DC5816E0A3C200688B46 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				48981F0917278E8A00383188 /* downArrowBlack.png */,
+				48981F0A17278E8A00383188 /* upArrowBlack.png */,
 				4800DEEE1712CA80002BCA36 /* BundleImages */,
 				489BE0FF170C3B5900DF7F1A /* 5_64x64.png */,
 				489BE100170C3B5900DF7F1A /* 6_64x64.png */,
@@ -1903,6 +1920,7 @@
 		4896691616DF5C2100FC8EC6 /* Tab2-Items View */ = {
 			isa = PBXGroup;
 			children = (
+				48981F01172781BF00383188 /* CollapsableView */,
 				489C9B5016F71AAE0066D62A /* CarouselView */,
 				489C9B4716F6DCD00066D62A /* CategorizeTable */,
 				48DFFF1616F3091D00B2D6E1 /* SectionTable */,
@@ -2000,6 +2018,16 @@
 			name = "Tab8-Notifications";
 			sourceTree = "<group>";
 		};
+		48981F01172781BF00383188 /* CollapsableView */ = {
+			isa = PBXGroup;
+			children = (
+				48981F04172781E400383188 /* CollapseViewController.h */,
+				48981F05172781E400383188 /* CollapseViewController.m */,
+				48981F06172781E400383188 /* CollapseViewController.xib */,
+			);
+			name = CollapsableView;
+			sourceTree = "<group>";
+		};
 		489917F4171567C9009D4DE5 /* FXLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2061,8 +2089,10 @@
 				489BFE2816E48E4C00E20415 /* MyViewController.m */,
 				489BFE2916E48E4C00E20415 /* OverlayViewController.h */,
 				489BFE2A16E48E4C00E20415 /* OverlayViewController.m */,
-				489BFE2B16E48E9200E20415 /* MyViewController.xib */,
 				489BFE2C16E48E9200E20415 /* OverlayViewController.xib */,
+				48963E9C171CFE08000E7D0B /* CameraViewController.h */,
+				48963E9D171CFE08000E7D0B /* CameraViewController.m */,
+				48963E9E171CFE08000E7D0B /* CameraViewController.xib */,
 			);
 			name = "Tab7-Camera";
 			sourceTree = "<group>";
@@ -2297,7 +2327,6 @@
 				4878DC4C16E0A19200688B46 /* HomeViewController.xib in Resources */,
 				489BFE0B16E46C7000E20415 /* DITableViewController.xib in Resources */,
 				489BFE2216E47F4700E20415 /* LBViewController.xib in Resources */,
-				489BFE2D16E48E9200E20415 /* MyViewController.xib in Resources */,
 				489BFE2E16E48E9200E20415 /* OverlayViewController.xib in Resources */,
 				48981E2216EEDE0A006A6F9D /* NotifierViewController.xib in Resources */,
 				48981E2D16EEE550006A6F9D /* MapViewController.xib in Resources */,
@@ -2649,6 +2678,11 @@
 				48990DB91713CBD600FC6D02 /* th_zen_accessories.jpg in Resources */,
 				48990DBA1713CBD600FC6D02 /* th_zoobies.jpg in Resources */,
 				489917F11715677C009D4DE5 /* TextPlayViewController.xib in Resources */,
+				48963EA0171CFE08000E7D0B /* CameraViewController.xib in Resources */,
+				48963EA4171D01EE000E7D0B /* tick.aiff in Resources */,
+				48981F08172781E400383188 /* CollapseViewController.xib in Resources */,
+				48981F0B17278E8A00383188 /* downArrowBlack.png in Resources */,
+				48981F0C17278E8A00383188 /* upArrowBlack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2764,6 +2798,8 @@
 				4896C5D8170EA5C5004225EA /* ProductManager.m in Sources */,
 				489917F01715677C009D4DE5 /* TextPlayViewController.m in Sources */,
 				489917F7171567C9009D4DE5 /* FXLabel.m in Sources */,
+				48963E9F171CFE08000E7D0B /* CameraViewController.m in Sources */,
+				48981F07172781E400383188 /* CollapseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

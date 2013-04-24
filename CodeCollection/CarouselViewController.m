@@ -62,7 +62,7 @@
     
     self.itemManager = [[[DItemManager alloc] initWithDelegate:self] autorelease];
     [self.itemManager requestAllItems];
-    self.productManager = [[[ProductManager alloc] initWithDelegate:self] autorelease];
+    self.productManager = [[[ProductManager alloc] initWithDelegate:self :NO] autorelease];
 
   // [self.slideView reloadData];
     [self initialSetup];
@@ -161,9 +161,9 @@
 }
 
 
-- (void)dProductManager:(ProductManager *)om shouldShowAllCategories:(NSArray *)allCategories {
+- (void)dProductManager:(ProductManager *)om shouldShowAllItems:(NSMutableDictionary *)allItems {
     //Using ProductManager
-   self.catalogue = [NSArray arrayWithArray:allCategories];
+   self.catalogue = [NSArray arrayWithArray:allItems];
     //[self.slideView reloadData];
      [self appendDataToICarousel:catalogue];
     [self hideActivityIndicator];
