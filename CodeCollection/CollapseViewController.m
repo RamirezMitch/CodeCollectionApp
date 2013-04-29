@@ -7,16 +7,15 @@
 //
 
 #import "CollapseViewController.h"
-
+#import "Product.h"
 @interface CollapseViewController (){
-    NSArray      *sectionTitleArray;
-    NSMutableDictionary *sectionContentDict;
-    NSMutableArray      *arrayForBool;
-}
+   }
 @end
 
 @implementation CollapseViewController
 @synthesize productManager;
+@synthesize myTable;
+@synthesize sectionTitleArray,sectionContentDict,arrayForBool;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,25 +25,32 @@
     }
     return self;
 }
-
+-(void)dealloc{
+    [productManager release];
+    [myTable release];
+    [sectionContentDict release];
+    [sectionTitleArray release];
+    [arrayForBool release];
+    [super dealloc];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-      self.productManager = [[[ProductManager alloc] initWithDelegate:self :YES] autorelease];
+          self.productManager = [[[ProductManager alloc] initWithDelegate:self :YES] autorelease];
       [self.productManager loadXLS];
     
 }
-- (void)dProductManager:(ProductManager *)om shouldShowAllSections:(NSMutableDictionary *)allSections{
-    sectionTitleArray =[NSArray arrayWithArray:[allSections allKeys]];
-    sectionContentDict =[NSMutableDictionary dictionaryWithDictionary:  allSections];
+- (void)dProductManager:(ProductManager *)om shouldShowAllSections:(NSArray *)allSections withContent:(NSMutableDictionary *)allContent {
+    self.sectionTitleArray =[NSArray arrayWithArray:allSections];
+    self.sectionContentDict =[NSMutableDictionary dictionaryWithDictionary:  allContent];
     if (!arrayForBool) {
-        arrayForBool    = [NSMutableArray arrayWithCapacity:[sectionTitleArray count]];
+        self.arrayForBool    = [NSMutableArray arrayWithCapacity:[sectionTitleArray count]];
         for(int cnt=0; cnt < [sectionTitleArray count]; cnt++){
             [arrayForBool addObject:[NSNumber numberWithBool:NO]];
         }
     }
-    [self.tableView reloadData];
+    [self.myTable reloadData];
 }
 #pragma mark - Table View
 
@@ -65,9 +71,9 @@
     UILabel *headerString           = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width-20-50, 50)];
     BOOL manyCells                  = [[arrayForBool objectAtIndex:section] boolValue];
     if (!manyCells) {
-        headerString.text = @"click to enlarge";
+        headerString.text = [sectionTitleArray objectAtIndex:section]; //@"click to enlarge";
     }else{
-        headerString.text = @"click again to reduce";
+        headerString.text = [sectionTitleArray objectAtIndex:section]; //@"click again to reduce";
     }
     headerString.textAlignment      = NSTextAlignmentLeft;
     headerString.textColor          = [UIColor blackColor];
@@ -114,11 +120,12 @@
     }
     BOOL manyCells  = [[arrayForBool objectAtIndex:indexPath.section] boolValue];
     if (!manyCells) {
-        cell.textLabel.text = @"click to enlarge";
+        cell.textLabel.text = [sectionTitleArray objectAtIndex:indexPath.section]; // @"click to enlarge";
     }
     else{
         NSArray *content = [sectionContentDict valueForKey:[sectionTitleArray objectAtIndex:indexPath.section]];
-        cell.textLabel.text = [content objectAtIndex:indexPath.row];
+        Product *dproduct = [content objectAtIndex:indexPath.row];
+        cell.textLabel.text = dproduct.product_title;
     }
     
     
@@ -126,7 +133,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.myTable deselectRowAtIndexPath:indexPath animated:YES];
   /*  DetailViewController *dvc;
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         dvc = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone"  bundle:[NSBundle mainBundle]];
@@ -151,7 +158,7 @@
         //reload specific section animated
         NSRange range   = NSMakeRange(indexPath.section, 1);
         NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.tableView reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationFade];
+        [self.myTable reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 

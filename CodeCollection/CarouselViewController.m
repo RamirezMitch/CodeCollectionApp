@@ -241,7 +241,6 @@
                 if (imageView.tag == 1) {
                     [imageView setImage:[UIImage imageNamed:prd.imageUrlSmall]];
                 }
-                
             }
             NSLog(@"index:%d  - prod_title:%@  - prod_img: %@  ", index, prd.product_title, prd.imageUrlSmall);
         }
@@ -305,7 +304,6 @@
     if(catalogue !=nil || [catalogue count]!=0){
             [self.slideView removeItemAtIndex:[catalogue count] animated:NO];
         }
-    
     //[self loadObjects:self.currentPage];
 }
 
@@ -319,10 +317,7 @@
             catalogue = theRsArray;
             
             [self.slideView reloadData];
-            
     }
-       
-    
 }
 
 - (void)dealloc{
@@ -334,7 +329,6 @@
     [loadMoreLabel release];
     [loadMoreIndicatoreView release];
      [super dealloc];
-    
 }
 
 - (void)didReceiveMemoryWarning

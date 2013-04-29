@@ -12,6 +12,7 @@
 @implementation ProductManager
 @synthesize delegate;
 @synthesize listContent, listSection;
+@synthesize listMainSection;
 -(id)initWithDelegate:(id)del :(BOOL)grouped {
     self = [super init];
     if (self) {
@@ -23,6 +24,7 @@
 -(void)dealloc{
     [listSection release];
     [listContent release];
+    [listMainSection release];
     [super dealloc];
 }
 -(void)loadXLS
@@ -109,7 +111,7 @@
         
     }
     NSArray *sortedArray;
-    NSSortDescriptor *lastDescriptor =[[NSSortDescriptor alloc] initWithKey:@"characterGroup"
+    NSSortDescriptor *lastDescriptor =[[NSSortDescriptor alloc] initWithKey:@"segmentDesc"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)];
     
@@ -118,24 +120,24 @@
     self.listContent = [NSArray arrayWithArray:sortedArray];
     [theProducts release];
     
-   /* log only
+    //log only
     for (Product *prd in self.listContent)
     {
         NSLog(@"sorted: %@", prd.segmentDesc);
     }
-    */
-    self.listSection = [[NSMutableDictionary alloc] init];
     
+    self.listSection = [[NSMutableDictionary alloc] init];
+    self.listMainSection = [[NSMutableArray alloc]init];
     BOOL found;
     
     // Loop through the books and create our keys
     for (Product *prd in self.listContent)
     {
-        NSString *c = [prd.product_title substringToIndex:1];
+        NSString *c =prd.segmentDesc; // [prd.product_title substringToIndex:1];
         
         found = NO;
         
-        for (NSString *str in [self.listSection allKeys])
+        for (NSString *str in self.listSection)
         {
             if ([str isEqualToString:c])
             {
@@ -145,6 +147,7 @@
         
         if (!found)
         {
+            [self.listMainSection addObject:c];
             [self.listSection setValue:[[NSMutableArray alloc] init] forKey:c];
         }
     }
@@ -152,17 +155,17 @@
     // Loop again and sort the books into their respective keys
     for (Product *prd in self.listContent)
     {
-        [[self.listSection objectForKey:[prd.product_title substringToIndex:1]] addObject:prd];
+        [[self.listSection objectForKey:prd.segmentDesc] addObject:prd];
     }
     
     // Sort each section array
-    for (NSString *key in [self.listSection allKeys])
+    for (NSString *key in self.listMainSection)
     {
         [[self.listSection objectForKey:key] sortUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"product_title" ascending:YES]]];
     }
 
     if(groupAll){
-        [self.delegate dProductManager:self shouldShowAllSections:self.listSection];
+        [self.delegate dProductManager:self shouldShowAllSections:self.listMainSection withContent:self.listSection];
     }else{
         [self.delegate dProductManager:self shouldShowAllItems:self.listContent];
     }

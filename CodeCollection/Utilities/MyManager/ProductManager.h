@@ -19,6 +19,7 @@
 }
 @property (nonatomic, retain) NSMutableDictionary *listSection;
 @property (nonatomic, retain) NSArray *listContent;
+@property (nonatomic, retain) NSMutableArray *listMainSection;
 @property(nonatomic,assign) id<ProductManagerDelegate> delegate;
 -(id)initWithDelegate:(id)del :(BOOL)grouped;
 - (void) cancelRequest;
@@ -29,6 +30,6 @@
 @protocol ProductManagerDelegate <NSObject>
 @optional
 - (void)dProductManager:(ProductManager *)om shouldShowAllItems:(NSArray *)allItems;
-- (void)dProductManager:(ProductManager *)om shouldShowAllSections:(NSMutableDictionary *)allSections;
+- (void)dProductManager:(ProductManager *)om shouldShowAllSections:(NSArray *)allSections withContent:(NSMutableDictionary *) allContent;
 
 @end
