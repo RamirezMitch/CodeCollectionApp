@@ -25,7 +25,8 @@
 #import "CarouselViewController.h"
 #import "TextPlayViewController.h"
 #import "CollapseViewController.h"
-
+#import "GridViewController.h"
+#import "MDViewController.h"
 @interface HomeViewController ()
 
 @end
@@ -46,7 +47,7 @@
         ListItem *item7= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"6_64x64.png"] text:@"Collapse"];
         ListItem *item8= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"6_64x64.png"] text:@"MultiColumn"];
         ListItem *item9= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"6_64x64.png"] text:@"iCarousel"];
-        ListItem *item10= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"6_64x64.png"] text:@"Pending"];
+        ListItem *item10= [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"6_64x64.png"] text:@"Grid"];
         
         //Map and Location
         ListItem *item11 = [[ListItem alloc] initWithFrame:CGRectZero image:[UIImage imageNamed:@"10_64x64.png"] text:@"Locate Me"];
@@ -312,6 +313,21 @@
         [appDelegate.mainNav pushViewController:movescaleView animated:YES];
         [movescaleView release];
     }
+    else if([item.imageTitle isEqualToString:@"Grid"]){
+        
+        GridViewController *movescaleView =[[GridViewController alloc]initWithNibName:@"GridViewController" bundle:nil];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+        [movescaleView release];
+    }
+    else if([item.imageTitle isEqualToString:@"MultiColumn"]){
+        
+        MDViewController *movescaleView =[[MDViewController alloc]initWithNibName:@"MDViewController_iPhone" bundle:nil];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.mainNav pushViewController:movescaleView animated:YES];
+        [movescaleView release];
+    }
+
 
     //Category2
     //Category3
