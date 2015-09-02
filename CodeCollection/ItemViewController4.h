@@ -11,6 +11,7 @@
 #import "PageView.h"
 #import "DItem.h"
 #import "AFRequestManager.h"
+#import "ProductManager.h"
 @class PageSheetView;
 @interface ItemViewController4 : UIViewController <PageViewDelegate,AFRequestManagerDelegate> {
     IBOutlet UIView* sheet;
@@ -23,6 +24,7 @@
     
 }
 @property(nonatomic,retain) AFRequestManager *requestManager;
+@property(nonatomic,retain) ProductManager *productManager;
 @property(nonatomic,retain) IBOutlet UIView* sheet;
 @property(nonatomic,retain) PageSheetView* currentSheet;
 @property(nonatomic,retain) PageSheetView* nextSheet;

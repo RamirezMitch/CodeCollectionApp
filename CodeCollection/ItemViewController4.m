@@ -8,6 +8,7 @@
 
 #import "ItemViewController4.h"
 #import "DItem.h"
+#import "Product.h"
 #import "Category.h"
 
 
@@ -21,6 +22,7 @@
 @implementation ItemViewController4
 @synthesize sheet,currentSheet,nextSheet,previousSheet,pageView;
 @synthesize itemCategoryDictionary,itemsMutableArray;
+@synthesize productManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -85,7 +87,9 @@
 - (void)initialTransaction
 {
 	
-    [self loadItems];
+   // [self loadItems];
+    self.productManager = [[[ProductManager alloc] initWithDelegate:self :NO] autorelease];
+    [self.productManager loadXLS];
 }
 
 - (void)loadItems{
@@ -155,6 +159,13 @@
         NSLog(@"itemsMutableArray:%@",itemsMutableArray);
         [self initializeIndulgeCoupons];
     }
+}
+
+- (void)dProductManager:(ProductManager *)om shouldShowAllItems:(NSMutableDictionary *)allItems {
+    //Using ProductManager
+    self.itemsMutableArray=[NSArray arrayWithArray:allItems];
+    NSLog(@"itemsMutableArray:%@",itemsMutableArray);
+    [self initializeIndulgeCoupons];
 }
 - (void)couponViewClicked:(id)sender
 {

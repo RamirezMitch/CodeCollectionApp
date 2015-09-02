@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DItem.h"
-
+#import "Product.h"
 @class ItemView;
 @interface ItemView : UIView{
 UIImageView* mainImage;
@@ -29,10 +29,10 @@ NSDictionary* itemData;
 @property(nonatomic,retain) NSDictionary* itemData;
 
 
-@property (nonatomic,retain) DItem *deal;
+@property (nonatomic,retain) Product *deal;
 
 - (void)applyItemData:(NSDictionary*)data;
-- (void)applyDealsData:(DItem*)deal;
+- (void)applyDealsData:(Product*)deal;
 - (void)clearItemData;
 
 @end

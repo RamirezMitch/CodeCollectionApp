@@ -69,18 +69,18 @@
 	return self;
 }
 
-- (void)applyDealsData:(DItem*)item
+- (void)applyDealsData:(Product*)item
 {
 	self.deal = item;
     
-	self.title.text =  item.title;
+	self.title.text =  item.product_title;
 	self.title.hidden = NO;
-	self.offerLabel.text = item.desc;
+	self.offerLabel.text = item.product_code;
 	
-	//self.mainImage.image = [UIImage imageNamed:@"placeholder.png"];//nil;
-    NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, item.imageUrlSmall];
+	self.mainImage.image = [UIImage imageNamed:item.imageUrlSmall];
+    /*NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, item.imageUrlSmall];
     NSURL *imageURL = [NSURL URLWithString:theImageUrl];
-   [self.mainImage setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+   [self.mainImage setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];*/
 }
 
 - (void)applyItemData:(NSDictionary*)data
