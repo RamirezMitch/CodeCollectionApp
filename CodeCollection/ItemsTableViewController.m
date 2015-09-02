@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MyUtil.h"
 #import "DItem.h"
+#import "Product.h"
 #import "ItemListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 @interface ItemsTableViewController ()
@@ -86,7 +87,8 @@
     self.items = [[[NSMutableArray alloc] init] autorelease];
     for (int i=0; i<[rawArray count]; i++) {
         NSDictionary *dic = (NSDictionary *)[rawArray objectAtIndex:i];
-        DItem *itemObj = [[DItem alloc] initWithDictionary:dic];
+       // DItem *itemObj = [[DItem alloc] initWithDictionary:dic];
+        Product *itemObj = (Product *)[rawArray objectAtIndex:i];
         [self.items addObject:itemObj];
         [itemObj release];
         
@@ -158,8 +160,8 @@
 - (void) configureCell:(UITableViewCell *)cellIn atIndexPath:(NSIndexPath *)indexPath {
     ItemListCell * cell = (ItemListCell *)cellIn;
     
-    DItem * o = [self.items objectAtIndex:indexPath.row];
-    
+    //DItem * o = [self.items objectAtIndex:indexPath.row];
+    Product * o = [self.items objectAtIndex:indexPath.row];
     // Tags - sync with those in PointsDetailsTableCellView.xib
     NSUInteger tagLabelTitle = 1;
     NSUInteger tagImage = 4;
@@ -171,7 +173,7 @@
     
     UILabel * labelTitle = (UILabel *)[cell viewWithTag:tagLabelTitle];
     UIImageView * imageView = (UIImageView *)[cell viewWithTag:tagImage];
-    UIActivityIndicatorView * indicatorImageLoading = (UIActivityIndicatorView *) [cell viewWithTag:tagImageLoadingIndicator];
+   // UIActivityIndicatorView * indicatorImageLoading = (UIActivityIndicatorView *) [cell viewWithTag:tagImageLoadingIndicator];
     UIView * viewBaseContent = (UIView *)[cell viewWithTag:tagViewBaseContent];
     UIView * viewSelect = (UIView *)[cell viewWithTag:tagViewSelect];
     UIButton * buttonSelect = (UIButton *)[cell viewWithTag:tagButtonSelect];
@@ -191,8 +193,9 @@
         viewBaseContent.frame = f;
     }
     
-    NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, o.imageUrlSmall];
-    [imageView setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    imageView.image = [UIImage imageNamed:o.imageUrlSmall];
+    /*NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, o.imageUrlSmall];
+    [imageView setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];*/
    /* [imageView setImageWithURL:[NSURL URLWithString:theImageUrl]
               placeholderImage:[UIImage imageNamed:@"placeholder.png"]
                        success:^(UIImage *image, BOOL cached) {
@@ -202,7 +205,7 @@
                            [indicatorImageLoading stopAnimating];
                        }];*/
     
-    [labelTitle setText:o.title];
+    [labelTitle setText:o.product_title];
   
 }
 
@@ -259,7 +262,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DItem * o = (DItem *)[self.items objectAtIndex:indexPath.row];
+       // DItem * o = (DItem *)[self.items objectAtIndex:indexPath.row];
+        Product * o = [self.items objectAtIndex:indexPath.row];
         [self.delegate mainTableViewController:self shouldDeleteItem:o];
         
         /*
@@ -301,7 +305,8 @@
     NSLog(@"didSelectRowAtIndexPath section=%d row=%d",indexPath.section, indexPath.row);
     
     if (!self.editing) {
-        DItem * o = [self.items objectAtIndex:indexPath.row];
+       // DItem * o = [self.items objectAtIndex:indexPath.row];
+        Product * o = [self.items objectAtIndex:indexPath.row];
         [self.delegate mainTableViewController:self shouldShowDetailsOfItem:o atSectionIndex:0 atRowIndex:indexPath.row];
     }
     else {

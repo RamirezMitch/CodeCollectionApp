@@ -49,6 +49,7 @@
 #import "ViewController.h"
 #import "Cell.h"
 #import "DItem.h"
+#import "Product.h"
 #import "Constants.h"
 
 NSString *kDetailedViewControllerID = @"DetailView";    // view controller storyboard id
@@ -77,22 +78,25 @@ static NSString * const PhotoCellIdentifier = @"PhotoCell";
 {
      static NSString *cellIdentifier = @"Cell";
     // we're going to use a custom UICollectionViewCell, which will hold an image and its label
-     DItem *o = [self.items objectAtIndex:indexPath.row];
+    // DItem *o = [self.items objectAtIndex:indexPath.row];
+     Product *o = [self.items objectAtIndex:indexPath.row];
     
     //
     Cell *cell = (Cell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // make the cell's title the actual NSIndexPath value
-    cell.label.text = o.title;
+    cell.label.text = o.product_title;
     
     // load the image for this cell
-    NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, o.imageUrlSmall];
-    //cell.image.image = [UIImage imageNamed:theImageUrl];
-    [cell.image setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+
+    cell.image.image = [UIImage imageNamed:o.imageUrlSmall];
+    /*NSString * theImageUrl = [NSString stringWithFormat:@"%@%@", BASE_URL, o.imageUrlSmall];
+     [cell.image setImageWithURL:[NSURL URLWithString:theImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];*/
     return cell;
 }
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition{
-      DItem *o = [self.items objectAtIndex:indexPath.row];
-    NSLog(@"selected cell: %@", o.title);
+      //DItem *o = [self.items objectAtIndex:indexPath.row];
+     Product *o = [self.items objectAtIndex:indexPath.row];
+    NSLog(@"selected cell: %@", o.product_title);
 }
 @end

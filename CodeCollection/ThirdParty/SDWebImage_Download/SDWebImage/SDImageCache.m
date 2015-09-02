@@ -404,7 +404,7 @@ static natural_t get_free_memory(void)
     return size;
 }
 
-- (int)getDiskCount
+/*- (int)getDiskCount
 {
     int count = 0;
     NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:diskCachePath];
@@ -414,7 +414,7 @@ static natural_t get_free_memory(void)
     }
     
     return count;
-}
+}*/
 
 - (int)getMemorySize
 {

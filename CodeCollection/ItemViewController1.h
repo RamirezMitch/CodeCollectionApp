@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AFRequestManager.h"
+#import "ProductManager.h"
 #import "ItemsTableViewController.h"
 @interface ItemViewController1 : UIViewController <MainTableViewControllerDelegate,AFRequestManagerDelegate>{
 UIView * viewBase;
@@ -17,4 +18,5 @@ NSArray * itemList;
 @property (nonatomic,retain) NSArray * itemList;
 @property(nonatomic,retain) IBOutlet UIView * viewBase;
 @property(nonatomic,retain) AFRequestManager *requestManager;
+@property(nonatomic,retain) ProductManager *productManager;
 @end
